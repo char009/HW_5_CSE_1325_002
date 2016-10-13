@@ -1,52 +1,87 @@
 #include <iostream>
 #include <stdlib.h>
+#include <string>
+#include <string.h>
+#include <strings.h>
 #include "std_lib_facilities.h"
 #include "component_info.h"
 #include "robot_model.h"
+#include "vector"
+#include "menu.h"
 
 using namespace std;
 
 int main()
 {
-    Component_Info component_info("R-Arm-1", 1201, 250.5, 250.99, "Robot Arm for sale", 1);
-    Robot_Model robot_model("Robot-1", 9901, 699.99, "The first ever model!", 749.99, 35, 150);
 
-    int choice;
-    do
-    {
-        cout << "1) Make Robot Components.\n";
-        cout << "2) Make Robot Models.\n";
-        cout << "Enter Choice: ";
-        cin >> choice;
-        cin.clear();
-        cin.ignore();
-    }while ((choice < 1) || (choice > 2));
+    Menu menu;
 
-    if (choice == 1)
+    cout<<"\n\n\n\n\t\t\t\t\t\t\t\tWelcome!\n\t\t\t\t\t\t\t\t(Press Enter)\n\n\n\n\n";
+    getch();
+    system("cls");
+
+    int choice=0;
+
+    do{
+    cout<<"Which User are you?";
+    cout<<"\n\n1. Product Manager\n2. Customer\t(Under Construction)\n3. Sales Associate\t(Under Construction)\n4. Boss\t(Under Construction)\nEnter Choice: ";
+    cin>>choice;
+    }while(choice<1 && choice>4);
+
+    string userName,password;
+    if(choice!=2)
     {
-        //component_info.set_component_name();
-        //component_info.set_part_number();
-        //component_info.set_component_weight();
-        //component_info.set_component_cost();
-        //component_info.set_part_description();
-        component_info.set_type();
-        component_info.print_component_info();
-    }
-    else if (choice == 2)
-    {
-        //robot_model.set_model_name();
-        //robot_model.set_model_number();
-        //robot_model.set_model_price();
-        //robot_model.set_model_description();
-        //robot_model.set_model_sales_price();
-        //robot_model.set_number_sold();
-        //robot_model.set_total_weight();
-        robot_model.print_robot_model();
-    }
-    else
-    {
-        cout << "IMPOSSIBLE!";
+    system("cls");
+    cout<<"\n\nUser Name: ";
+    cin>>userName;
+    char ch;
+    cout << "Enter password: ";
+    ch = _getch();
+    while(ch != 13)
+      {
+        password.push_back(ch);
+        cout << '*';
+        ch = _getch();
+      }
     }
 
+    switch(choice)
+    {
+    case 1:{
+               if(userName=="a" && password == "a")
+                  {
+                    cout << "\nAccess granted :P\n";
+                    // provide boss access here!
+                    menu.menu1();
+                  }
+               else
+                  cout << "\nAccess aborted...\n";
+             break;
+           }
+    case 2:{
+             // give customer access to things here
+             break;
+           }
+
+    case 3:{
+                if(userName=="Me=SA" && password == "more*Salary")
+                  {
+                    cout << "\nAccess granted :P\n";
+                    // provide Sales Assistant access here!
+                  }
+               else
+                    cout << "\nAccess aborted...\n";
+             break;
+           }
+    case 4:{
+                if(userName=="Me=Boss" && password =="Birthdate")
+                  {cout << "\nAccess granted :P\n";
+                    // provide boss access here!
+                  }
+               else
+                  cout << "\nAccess aborted...\n";
+             break;
+           }
+    }
     return 0;
 }
