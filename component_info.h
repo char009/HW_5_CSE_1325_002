@@ -21,6 +21,7 @@ private:
     string part_description;
     int type;
 public:
+    double locmaxspd, locpowcon;
     Component_Info (string cname,
                     int pnumber,
                     double cweight,
@@ -41,6 +42,8 @@ public:
     void set_component_cost();
     void set_part_description();
     void set_type();
+
+    void set_components();
 
     string get_component_name();
     int get_part_number();
