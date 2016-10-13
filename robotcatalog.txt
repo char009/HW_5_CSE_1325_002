@@ -1,0 +1,8 @@
+Robot_1,1101,2000.99,2,5.49,A new Robot 1
+Robot_2,1102,1995.99,4,6.49,A new Robot 2
+Robot_3,1103,1852.99,5,7.49,A new Robot 3
+Robot_4,1104,1635.99,3,5.01,A new Robot 4
+Robot_5,1105,2100.99,7,6.01,A new Robot 5
+Genesis,777,102515,34,300,Terminator
+a,12,17.05,1,1,1
+abx,2543,496.75,21,253,new 1
