@@ -15,11 +15,15 @@ public:
     {
         cout << "Enter max speed of locomotor(MPH): ";
         cin >> maxSpeed;
+        cin.clear();
+        cin.ignore();
     }
     void set_power_consumed_loc()
     {
         cout << "Enter power consumed by locomotor(watts): ";
         cin >> powerConsumed;
+        cin.clear();
+        cin.ignore();
     }
     double get_power_consumed_loc()
     {
