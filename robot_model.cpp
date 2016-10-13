@@ -9,7 +9,7 @@
 void Robot_Model::set_model_name()
 {
     cout << "Please enter model name: ";
-    cin >> model_name;
+    getline(cin, model_name);
 }
 
 void Robot_Model::set_model_number()
@@ -20,7 +20,7 @@ void Robot_Model::set_model_number()
     cin.ignore();
 }
 
-void Robot_Model::set_model_price()
+void Robot_Model::set_model_price( )
 {
     cout << "Please enter model price($): ";
     cin >> model_price;
@@ -32,17 +32,16 @@ void Robot_Model::set_model_price()
 void Robot_Model::set_model_description()
 {
     cout << "Please enter model description: ";
-    cin >> model_description;
-    cin.clear();
-    cin.ignore();
+    getline(cin, model_description);
 }
 
 void Robot_Model::set_model_sales_price()
 {
-    cout << "Please enter model sales price($): ";
-    cin >> model_sales_price;
-    cin.clear();
-    cin.ignore();
+    double tax, profit, shipping;
+    tax = 0.85 * model_price;
+    profit = 0.20 * model_price;
+    shipping = 15;
+    model_sales_price = model_price + tax + shipping + profit;
 }
 
 void Robot_Model::set_number_sold()
@@ -55,7 +54,7 @@ void Robot_Model::set_number_sold()
 
 void Robot_Model::set_total_weight()
 {
-    cout << "Please enter component weight(grams): ";
+    cout << "Please enter Model weight(kg): ";
     cin >> total_weight;
     cin.clear();
     cin.ignore();

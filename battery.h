@@ -14,11 +14,15 @@ public:
     {
         cout << "Enter maximum power of battery(watts): ";
         cin >> maxPower;
+        cin.clear();
+        cin.ignore();
     }
     void set_maxEnergy_battery()
     {
         cout << "Enter energy of battery(Kilowatts hours): ";
         cin >> maxEnergy;
+        cin.clear();
+        cin.ignore();
     }
     double get_maxPower_battery()
     {
