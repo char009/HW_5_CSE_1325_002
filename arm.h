@@ -13,11 +13,15 @@ public:
     {
         cout << "Enter power consumed by arm(watts): ";
         cin >> powerConsumed;
+        cin.clear();
+        cin.ignore();
     }
     void set_maxSpeed_arm()
     {
         cout << "Enter max speed of arm(MPH): ";
         cin >> maxSpeed;
+        cin.clear();
+        cin.ignore();
     }
     double get_power_consumed_arm()
     {

@@ -1,14 +1,17 @@
 #ifdef _MSC_VER
 #include "stdafx.h"
 #endif
+#include "std_lib_facilities.h"
 #include "component_info.h"
 #include <string>
 #include <iostream>
+#include <iomanip>
+
 
 void Component_Info::set_component_name()
 {
     cout << "Please enter component name: ";
-    cin >> component_name;
+    getline(cin, component_name);
 }
 
 void Component_Info::set_part_number()
@@ -38,7 +41,7 @@ void Component_Info::set_component_cost()
 void Component_Info::set_part_description()
 {
     cout << "Please enter part description: ";
-    cin >> part_description;
+    getline(cin, part_description);
 }
 
 void Component_Info::set_type()
@@ -59,31 +62,33 @@ void Component_Info::set_type()
     if (type == 1)
     {
         Locomotor locomotor(3.3, 150);
-        //locomotor.set_power_consumed_loc();
-        //locomotor.set_maxSpeed_loc();
+        locomotor.set_power_consumed_loc();
+        locomotor.set_maxSpeed_loc();
+        locmaxspd = locomotor.get_maxSpeed_loc();
+        locpowcon = locomotor.get_power_consumed_loc();
         locomotor.print_maxSpeed_loc();
         locomotor.print_power_consumed_loc();
     }
     else if (type == 2)
     {
         Arm arm(3.3, 150);
-        //arm.set_power_consumed_arm();
-        //arm.set_maxSpeed_arm();
+        arm.set_power_consumed_arm();
+        arm.set_maxSpeed_arm();
         arm.print_maxSpeed_arm();
         arm.print_power_consumed_arm();
     }
     else if (type == 3)
     {
         Battery battery(300, 1000);
-        //battery.set_maxPower_battery();
-        //battery.set_maxEnergy_battery();
+        battery.set_maxPower_battery();
+        battery.set_maxEnergy_battery();
         battery.print_maxPower_battery();
         battery.print_maxEnergy_battery();
     }
     else if (type == 4)
     {
         Torso torso(2);
-        //torso.set_battery_compartments();
+        torso.set_battery_compartments();
         torso.print_battery_compartments();
     }
     else if (type == 5)
@@ -94,6 +99,16 @@ void Component_Info::set_type()
     {
         cout << "IMPPOSSIBLE";
     }
+}
+
+void Component_Info::set_components()
+{
+
+    set_component_name();
+    set_part_number();
+    set_component_weight();
+    set_component_cost();
+    set_part_description();
 }
 
 string Component_Info::get_component_name()
@@ -131,7 +146,7 @@ void Component_Info::print_component_info()
     cout << "Name: " << component_name << endl;
     cout << "Part Number: " << part_number << endl;
     cout << "Component Weight: " << component_weight << " grams" << endl;
-    cout << "Component Cost: " << component_cost << " $" << endl;
+    cout << "Component Cost: $" << component_cost << endl;
     cout << "Part Description: " << part_description << endl;
     cout << "Part type: " << type << endl;
 }
